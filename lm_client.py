@@ -44,3 +44,20 @@ def query_lm(
         return result.get("choices", [{}])[0].get("text", "").strip()
     except Exception as e:
         return f"Error: {e}"
+
+def query_lm_from_text(prompt, model="llama-3.2-1b-instruct", max_tokens=300, temperature=0.7):
+    data = {
+        "model": model,
+        "prompt": prompt,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+
+    try:
+        response = requests.post(LM_STUDIO_API, json=data)
+        response.raise_for_status()
+        result = response.json()
+        return result.get("choices", [{}])[0].get("text", "").strip()
+    except Exception as e:
+        return f"Error: {e}"
+
