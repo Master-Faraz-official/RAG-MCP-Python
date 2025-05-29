@@ -1,0 +1,5 @@
+test_file.txt
+-------------
+LangChain is a powerful framework for building applications with language models.
+It supports document loading, chunking, embeddings, and vector storage.
+Qdrant is a fast vector database used for semantic search and similarity queries.
