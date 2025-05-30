@@ -6,7 +6,6 @@ from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams
 from langchain_community.document_loaders import TextLoader
 from langchain_huggingface import HuggingFaceEmbeddings
-# from langchain_community.vectorstores import QdrantVectorStore
 
 from langchain_community.vectorstores import Qdrant
 
@@ -42,16 +41,9 @@ else:
     print(f"Using existing Qdrant collection '{COLLECTION_NAME}'.")
 
 # Helper to get vector store instance
-# def get_vectorstore():
-#     return Qdrant(client=client, collection_name=COLLECTION_NAME, embeddings=embedding_model)
 
-# vectorstore = get_vectorstore()
-# # Initialize vector store
-
-# vectorstore = QdrantVectorStore(client=client, collection_name=COLLECTION_NAME, embeddings=embedding_model)
-# vectorstore = Qdrant(client=client, collection_name=COLLECTION_NAME, embeddings=embedding_model)
 vectorstore = Qdrant(client=client, collection_name=COLLECTION_NAME, embeddings=embedding_model)
-# ...existing code...
+
 
 # Load, split, and store documents into Qdrant
 def load_and_store_documents(file_path: str):
